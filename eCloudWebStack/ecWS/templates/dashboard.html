@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title%}Dashboard{% endblock %}
+
+{% block extra_head %}
+  	<link rel="stylesheet" href="{% static 'css/dashboardStyle.css' %}" />
+  	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" />
+{% endblock %}
+
+
+{% block afterlogin%}
+<li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="{% url 'dashboard' %}">Home</a>
+</li>
+{% endblock %}
+
+{% block navbar_search %}
+<form method="POST" action="{% url 'account_logout' %}">
+    {% csrf_token %}
+    <button type="submit" class="btn btn-danger">Logout</button>
+</form>
+{% endblock %}
+
+{% block content %}
+
+<div class="d-flex">
+    <!-- Sidebar -->
+    <div id="sidebar" class="bg-dark text-white p-3 vh-100" style="width: 250px; transition: width 0.3s;">
+        <button class="btn btn-sm btn-light mb-3" onclick="toggleSidebar()">☰</button>
+        <div class="nav flex-column">
+            <a href="#" class="btn btn-purple mb-2 text-start d-flex align-items-center">
+                <i class="bi bi-folder-fill me-2"></i> <span class="sidebar-label">Files</span>
+            </a>
+            <a href="#" class="btn btn-purple mb-2 text-start d-flex align-items-center">
+                <i class="bi bi-diagram-3-fill me-2"></i> <span class="sidebar-label">Code Visualize</span>
+            </a>
+            <a href="#" class="btn btn-purple mb-2 text-start d-flex align-items-center">
+                <i class="bi bi-chat-left-text-fill me-2"></i> <span class="sidebar-label">Chat Assists</span>
+            </a>
+            <a href="#" class="btn btn-purple mb-2 text-start d-flex align-items-center">
+                <i class="bi bi-person-fill me-2"></i> <span class="sidebar-label">Profile</span>
+            </a>
+        </div>
+    </div>
+
+    <!-- Main content -->
+    <div class="flex-grow-1 p-4">
+        <h1>Main Content</h1>
+        <p>This content adjusts based on sidebar width.</p>
+    </div>
+</div>
+
+{% endblock %}
+
+
+
+
+{% block scripts %}
+    <script src="{% static 'js/dashboard.js' %}"></script>
+{% endblock %}

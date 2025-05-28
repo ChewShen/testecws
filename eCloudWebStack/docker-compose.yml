@@ -1,0 +1,29 @@
+name: test-eCloud-WebStack
+
+services:
+  app:
+   env_file:
+   - .env
+   build:
+     context: .
+     dockerfile: dockerfile
+   image: test-ecws-image
+   container_name: test-ecws-container
+   ports:
+   - "8000:8000"
+   volumes:
+   - .:/app
+  db:
+   image: postgres:17
+   container_name: test-postgres-db
+   restart: always
+   environment:
+     POSTGRES_USER: ${DB_USER}
+     POSTGRES_PASSWORD: ${DB_PASSWORD}
+     POSTGRES_DB: ${DB_NAME}
+   volumes:
+    - postgres_data:/var/lib/postgresql/data
+   ports:
+     - "5432:5432"
+volumes:
+ postgres_data:

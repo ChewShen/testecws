@@ -1,0 +1,11 @@
+.sizze{
+    
+    font-family: Arial, Helvetica, sans-serif;
+    margin-bottom: -0.65em;
+}
+
+hr {
+    border-top: 2px solid #000000; /* Customize the line */
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
