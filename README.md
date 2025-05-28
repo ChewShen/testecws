@@ -13,7 +13,7 @@ The implementation for the project can be seperate into a few parts.
   -----------
 1. For basic dockerise and able to run the server and postgresql
    
-- **Login /w google**
+- **Login w/ google**
   -----------
 1. Successful connect and able to access for login and register using google.
    
